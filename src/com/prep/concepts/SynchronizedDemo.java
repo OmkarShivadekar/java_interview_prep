@@ -36,6 +36,9 @@ public class SynchronizedDemo {
 		
 		t1.start();
 		t2.start();
+		
+		//one thread value/process will reflect/override with other thread if we don't use join method
+		
 		t1.join();
 		t2.join();
 		
