@@ -27,7 +27,7 @@ public class BookMyShow implements Runnable{
 			}
 			else
 			{
-				System.out.println("sorry no ticket available");
+				System.out.println("sorry "+threadName+" no ticket available");
 			}
 			avgSeat-=reqSeat;
 			
