@@ -14,7 +14,7 @@ public class CustomException extends Something implements ABC{
 	
 	
 	
-	@Override
+	/*@Override
 	public void show() throws ArrayIndexOutOfBoundsException {
 		
 		System.out.println("Hoello");
@@ -37,17 +37,17 @@ public class CustomException extends Something implements ABC{
 		}
 	}
 	
-	
+	*/
 	
 	
 	
 	public static void main(String[] args) {
 		int age = 10;
 		
-		CustomException ce = new CustomException();
+		//CustomException ce = new CustomException();
 		//ce.show();
-		System.out.println(ce.returnValue());
-		/*if(age<18) {
+		//System.out.println(ce.returnValue());
+		if(age<18) {
 			try {
 				throw new InvalidAgeException("sorry");
 			} catch (InvalidAgeException e) {
@@ -61,14 +61,6 @@ public class CustomException extends Something implements ABC{
 		else
 		{
 			System.out.println("please vote");
-		}*/
-	}
-}
-
-class Something{
-	
-	public void show() 
-	{
-		System.out.println("World");
+		}
 	}
 }
