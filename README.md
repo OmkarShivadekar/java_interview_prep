@@ -10,6 +10,9 @@
 **2. What is functional interface**
 
 An interface that contains only one abstract method is known as functional interface. It can have any number of default and static methods.
+|⚠️Note |
+| :------- |
+| <ul> <li>All methods in interface are public and abstract.  </li> <li>Default methods are not forced to override by implementation class. There is no restriction to override it.</li> <li>Static methods are act as utility method for interface.There is no restriction to override it. </li></ul>|
 ```java
 public interface MyFunctionalInterface {
 
@@ -34,10 +37,6 @@ public interface MyFunctionalInterface {
 - Callable
 - Comparator  
 >This contains only 1 abstract method called compare() and equals() does not belong to the Comparator interface. It is inherited from the Object class. That's why we cannot count it as an abstract method.
-
-|⚠️Note |
-| :------- |
-| <ul> <li>All methods in interface are public and abstract.  </li> <li>Default methods are not forced to override by implementation class. There is no restriction to override it.</li> <li>Static methods are act as utility method for interface.There is no restriction to override it. </li></ul>|
 
 **4. Can we extends functional interface from another functional interface** 
 
