@@ -9,7 +9,7 @@
 
 **2. What is functional interface**
 
-&nbsp; An interface that contains only one abstract method is known as functional interface. It can have any number of default and static methods.
+An interface that contains only one abstract method is known as functional interface. It can have any number of default and static methods.
 ```java
 public interface MyFunctionalInterface {
 
