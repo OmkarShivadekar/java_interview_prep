@@ -14,20 +14,18 @@ An interface that contains only one abstract method is known as functional inter
 | :------- |
 | <ul> <li>All methods in interface are public and abstract.  </li> <li>Default methods are not forced to override by implementation class. There is no restriction to override it.</li> <li>Static methods are act as utility method for interface.There is no restriction to override it. </li></ul>|
 ```java
-public interface MyFunctionalInterface {
+@FunctionalInterface
+public interface UPIPayment {
 
-	void m1();
+	String doPayment(String source, String destination);
 
-	default void m2() {
-		System.out.println("Default method-1");
+	default double getScratchCard() {
+		return new Random().nextDouble();
 	}
 
-	default void m3() {
-		System.out.println("Default method-2");
-	}
-
-	static void m4() {
-		System.out.println("static method-1");
+	static String datePatternt(String pattern) {
+		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+		return sdf.format(new Date());
 	}
 }
 ```
