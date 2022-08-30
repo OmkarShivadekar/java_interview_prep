@@ -22,7 +22,8 @@ public interface UPIPayment {
 	default double getScratchCard() {
 		return new Random().nextDouble();
 	}
-
+	
+	//act as utility method
 	static String datePatternt(String pattern) {
 		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
 		return sdf.format(new Date());
