@@ -35,7 +35,7 @@ public interface UPIPayment {
 - Runnable
 - Callable
 - Comparator  
->This contains only 1 abstract method called compare() and equals() does not belong to the Comparator interface. It is inherited from the Object class. That's why we cannot count it as an abstract method.
+>Comparator contains only 1 abstract method called compare() and equals() does not belong to the Comparator interface. It is inherited from the Object class. That's why we cannot count it as an abstract method.
 
 **4. Can we extends functional interface from another functional interface** 
 
