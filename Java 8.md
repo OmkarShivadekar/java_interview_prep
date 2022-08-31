@@ -49,6 +49,30 @@ Yes we can extend but it’ll not act as a functional interface because it’ll 
 
 **6. What is lambda expression**
 
-Express instance of functional interface, in other words it provides a clear and concise way to represent a method of a functional using an expression.
+- A short block of code which takes in parameters and returns a value. 
+- Lambda expressions are similar to methods, but they do not need a name and they can be implemented right in the body of a method.
+- Passing functions to the code.
+- Express instance of functional interface, in other words it provides a clear and concise way to represent a method of a functional using an expression.
+- Simplest way to create lambda is copy the interface method, remove the prefix and datatype of parameters and provide the expression (arrow)
 
+**7. Advantages and disadvantages of lambda expression**
+| Advantages | Disadvantages |
+| ------- | ---------------|
+| <ol><li>Avoid writing anonymous implementation</li><li>It saves lot of code</li><li>The code is directly readable</li></ol> | <ol><li>Hard to use without IDE</li><li>Complex to debug</li></ol> |
+
+**8. What is Stream API**
+
+Stream API introduced in java 8 to process collection of objects with functional style of coding using lambda expression.
+
+**9. What is Stream in java 8**
+- A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result
+- A stream is not a data structure, instead it takes input from Collections, Arrays or I/O channels.
+- Stream don't change the original data structure, they only provide the result as per the pipelined method
+
+**10. What is method reference in java 8**
+
+It is shorthand notation of lambda expression to call a method
+```java
+numList.stream().filter(n -> n>5).sorted().forEach(System.out::println);
+```
 
