@@ -20,6 +20,7 @@ Example
 
 <details>
     <summary> Eager Singleton Example </summary>
+    
     ```java
     
     class EagerSinglton{
