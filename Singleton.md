@@ -7,6 +7,12 @@ Example
 
 <details>
 
-<summary>Tips for collapsed sections</summary>
+<summary> 1. Eager Singleton</summary>
   
-</details
+</details>
+
+<details>
+
+<summary> 2. Lazy Singleton</summary>
+  
+</details>
