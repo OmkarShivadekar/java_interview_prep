@@ -31,9 +31,9 @@ Example
         public static EagerSinglton getInstance(){
             return instance;
         }
-    }
+  }
     
-    public class MyClass {
+  public class MyClass {
     
         public static void main(String args[]) {
             EagerSinglton e1 = EagerSinglton.getInstance();
@@ -44,7 +44,7 @@ Example
      
             System.out.println("EagerSinglton " + e2.hashCode());
         }
-    }
+  }
   ```
 </details>
 
