@@ -42,3 +42,6 @@ Example
         }
     }
     ```
+<details>
+<summary>Eager Singleton Example</summary> 
+</details>
