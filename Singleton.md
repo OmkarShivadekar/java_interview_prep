@@ -82,4 +82,76 @@ Example
   ```
 </details>
  
-   
+<details><summary>Double Check Lazy instantiation Example</summary>
+    
+
+  
+  ```java
+    class DoubleCheckLazySingleton{
+        private DoubleCheckLazySingleton(){
+
+        } 
+
+        private static DoubleCheckLazySingleton instance;
+
+        public static  DoubleCheckLazySingleton getInstance(){
+            if(instance == null){
+                synchronized(DoubleCheckLazySingleton.class){
+                    if(instance == null){
+                         return instance = new DoubleCheckLazySingleton();
+                    }
+                }
+            }
+            return instance;
+        }
+    }
+    
+    public class MyClass {
+    
+        public static void main(String args[]) {
+            DoubleCheckLazySingleton d1 = DoubleCheckLazySingleton.getInstance();
+     
+            System.out.println("DoubleCheckLazySingleton " + d1.hashCode());
+     
+            DoubleCheckLazySingleton d2 = DoubleCheckLazySingleton.getInstance();
+     
+            System.out.println("DoubleCheckLazySingleton " + d2.hashCode());
+        }
+    }
+  ```
+</details>
+
+<details><summary>Inner class Lazy instantiation Example</summary>
+    
+    
+
+  
+  ```java
+    class LazyInnerSingleton{
+    
+        private LazyInnerSingleton(){
+
+        }
+        private static class SingletonHelper{
+            private static final LazyInnerSingleton inst = new LazyInnerSingleton();      
+        }
+
+        public static LazyInnerSingleton getInstance(){
+            return SingletonHelper.inst;
+        }
+    }
+    
+     public class MyClass {
+    
+        public static void main(String args[]) {
+            LazyInnerSingleton ll1 = LazyInnerSingleton.getInstance();
+     
+            System.out.println("LazyInnerSingleton " + ll1.hashCode());
+     
+            LazyInnerSingleton ll2 = LazyInnerSingleton.getInstance();
+     
+            System.out.println("LazyInnerSingleton " + ll2.hashCode());
+        }
+    }
+  ```
+</details>
