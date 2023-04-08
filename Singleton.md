@@ -258,3 +258,71 @@ _There are 3 ways we can break singleton behavior in Java_
     }
   ```
 </details>
+
+<details><summary>Serializable interface</summary>
+    
+  ```java
+    import java.lang.reflect.Constructor;
+    import java.lang.reflect.InvocationTargetException;
+    import java.io.Serializable;
+    import java.io.*;
+
+    class LazySingleton extends MyClone implements Serializable{
+
+        private static LazySingleton instance;
+
+        //to prevent new object creation using reflection
+        private LazySingleton(){
+            if(instance != null){
+                throw new IllegalStateException("Object cant be created using reflection");
+            }
+        }
+
+       //to prevent new object creation by deserializing object
+        protected Object readResolve(){
+            return instance;
+        }
+
+        //to prevent this we can overrride clone() menthod and throw CloneNotSupportedException exception
+         @Override
+        protected Object clone() throws CloneNotSupportedException{
+            throw new CloneNotSupportedException();   
+        }
+
+        public static synchronized LazySingleton getInstance(){
+            if(instance == null)
+                return instance = new LazySingleton();
+
+            return instance;
+        }
+    }
+
+    class MyClone implements Cloneable{
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException{
+            return super.clone();    
+        }
+    }
+
+    public class MyClass {
+        public static void main(String args[]) 
+            throws FileNotFoundException, IOException, ClassNotFoundException{
+
+         LazySingleton inst1 = LazySingleton.getInstance();
+         System.out.println(inst1.hashCode());
+
+         ObjectOutput out = new ObjectOutputStream(new FileOutputStream("singleton.ser"));
+         out.writeObject(inst1);
+         out.close();
+
+         ObjectInput in = new ObjectInputStream(new FileInputStream("singleton.ser"));
+         LazySingleton inst2 = (LazySingleton)in.readObject();
+         in.close();
+
+         System.out.println(inst2.hashCode());
+
+        }
+    }
+  ```
+</details>
