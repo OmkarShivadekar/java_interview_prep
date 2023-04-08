@@ -5,14 +5,26 @@
 Example
 > java.lang.Runtime
 
-<details>
+1. Eager Singleton
+  - When object creation done at class loading.
+  - Always declare constructor as private
+  - Create instance of that class at class loading using static final modifier
+  - Declare getter method to get the instance
+  - There might be some performance issue in eager singleton if object holding some resource.
+  
+2. Lazy Singleton
+  - Object creation will be done when its needed.
+  - Add null check to verify if object is created or not
+  - To avoid race condition in multi thread environment use synchronized keyword on method
 
-<summary> 1. Eager Singleton</summary>
+
+<details>
+<summary>Example 1</summary>
   
 </details>
 
 <details>
 
-<summary> 2. Lazy Singleton</summary>
+<summary>Example 2</summary>
   
 </details>
