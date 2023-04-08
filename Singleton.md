@@ -17,11 +17,7 @@ Example
     - Add null check to verify if object is created or not
     - To avoid race condition in multi thread environment use synchronized keyword on method
 
-
-<details>
-    <summary> Eager Singleton Example </summary>
-    
-    ```java
+ ```java
     class EagerSinglton{
          private static final EagerSinglton instance = new EagerSinglton();
 
@@ -46,10 +42,3 @@ Example
         }
     }
     ```
-</details>
-
-<details>
-
-<summary> Lazy Singleton Example </summary>
-  
-</details>
