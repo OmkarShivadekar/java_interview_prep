@@ -41,7 +41,8 @@ Example
              System.out.println("EagerSinglton " + e2.hashCode());
         }
     }
-    ```
+ ```
+ 
 <details>
 <summary>Eager Singleton Example</summary> 
 </details>
