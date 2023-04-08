@@ -22,7 +22,6 @@ Example
     <summary> Eager Singleton Example </summary>
     
     ```java
-    
     class EagerSinglton{
          private static final EagerSinglton instance = new EagerSinglton();
 
