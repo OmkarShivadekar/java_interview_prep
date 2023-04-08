@@ -19,12 +19,12 @@ Example
 
 
 <details>
-<summary>Example 1</summary>
+<summary> Eager Singleton Example </summary>
   
 </details>
 
 <details>
 
-<summary>Example 2</summary>
+<summary> Lazy Singleton Example </summary>
   
 </details>
