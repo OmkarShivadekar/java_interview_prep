@@ -4,3 +4,9 @@
 
 Example
 > java.lang.Runtime
+
+<details>
+
+<summary>Tips for collapsed sections</summary>
+  
+</details
