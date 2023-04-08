@@ -19,7 +19,6 @@ Example
 
 
 <details><summary>Eager instantiation Example</summary>
-
   
   ```java
   class EagerSinglton{
@@ -49,7 +48,6 @@ Example
 </details>
 
 <details><summary>Lazy instantiation Example</summary>
-
   
   ```java
     class LazySingleton{
@@ -83,8 +81,6 @@ Example
 </details>
  
 <details><summary>Double Check Lazy instantiation Example</summary>
-    
-
   
   ```java
     class DoubleCheckLazySingleton{
@@ -122,9 +118,6 @@ Example
 </details>
 
 <details><summary>Inner class Lazy instantiation Example</summary>
-    
-    
-
   
   ```java
     class LazyInnerSingleton{
@@ -151,6 +144,57 @@ Example
             LazyInnerSingleton ll2 = LazyInnerSingleton.getInstance();
      
             System.out.println("LazyInnerSingleton " + ll2.hashCode());
+        }
+    }
+  ```
+</details>
+
+
+_There are 3 ways we can break singleton behavior in Java_
+1. **Cloneable interface**
+    -   To prevent this you can overrride clone() menthod and throw CloneNotSupportedException exception
+
+
+<details><summary>Example</summary>
+    
+  ```java
+    class LazySingleton extends MyClone{
+    
+        private LazySingleton(){
+
+        } 
+
+        private static LazySingleton instance;
+
+        //to prevent this we can overrride clone() menthod and throw CloneNotSupportedException exception
+         @Override
+        protected Object clone() throws CloneNotSupportedException{
+            throw new CloneNotSupportedException();   
+        }
+
+        public static synchronized LazySingleton getInstance(){
+            if(instance == null)
+                return instance = new LazySingleton();
+
+            return instance;
+        }
+    }
+
+    class MyClone implements Cloneable{
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException{
+            return super.clone();    
+        }
+    }
+
+    public class MyClass {
+        public static void main(String args[]) throws CloneNotSupportedException {
+
+         LazySingleton inst1 = LazySingleton.getInstance();
+          System.out.println(inst1.hashCode());
+         LazySingleton inst2 = (LazySingleton) inst1.clone();
+          System.out.println(inst2.hashCode());
         }
     }
   ```
