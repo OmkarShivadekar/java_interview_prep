@@ -42,34 +42,7 @@ Example
         }
     }
  ```
- 
-<details>
-<summary>Eager Singleton Example</summary
-    
+ <details>
+    <summary>Tips for collapsed sections</summary>
+ </details>
    
-```java
-   class EagerSinglton{
-         private static final EagerSinglton instance = new EagerSinglton();
-
-         private EagerSinglton(){
-         }
-
-        public static EagerSinglton getInstance(){
-            return instance;
-        }
-    }
-    
-    public class MyClass {
-    
-        public static void main(String args[]) {
-            EagerSinglton e1 = EagerSinglton.getInstance();
-     
-            System.out.println("EagerSinglton " + e1.hashCode());
-     
-            EagerSinglton e2 = EagerSinglton.getInstance();
-     
-            System.out.println("EagerSinglton " + e2.hashCode());
-        }
-    }
-```
-</details>
