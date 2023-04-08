@@ -1,4 +1,4 @@
-# Singleton pattern
+# [Singleton pattern](https://youtu.be/3yEx0w3eYpk) 
 - Creational design pattern as it deals with object creation.
 - If you have common sharable data and you want to share across multiple classes in that case we should go for singleton design pattern
 
@@ -150,7 +150,7 @@ Example
 </details>
 
 #
-_There are 3 ways we can break singleton behavior in Java_
+[_There are 3 ways we can break singleton behavior in Java_](https://youtu.be/rSZIRsB0YlQ)
 
 <details><summary>Cloneable interface</summary>
     
