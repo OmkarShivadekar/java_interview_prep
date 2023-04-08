@@ -149,13 +149,13 @@ Example
   ```
 </details>
 
-
+#
 _There are 3 ways we can break singleton behavior in Java_
-1. **Cloneable interface**
-    -   To prevent this you can overrride clone() menthod and throw CloneNotSupportedException exception
 
-
-<details><summary>Example</summary>
+<details><summary>Cloneable interface</summary>
+    
+- To prevent this you can overrride clone() menthod and throw CloneNotSupportedException exception
+    
     
   ```java
     class LazySingleton extends MyClone{
@@ -195,6 +195,65 @@ _There are 3 ways we can break singleton behavior in Java_
           System.out.println(inst1.hashCode());
          LazySingleton inst2 = (LazySingleton) inst1.clone();
           System.out.println(inst2.hashCode());
+        }
+    }
+  ```
+</details>
+
+<details><summary>Reflection API</summary>   
+    
+  ```java
+    import java.lang.reflect.Constructor;
+    import java.lang.reflect.InvocationTargetException;
+
+    class LazySingleton extends MyClone{
+         private static LazySingleton instance;
+
+         //to prevent new object creation using reflection
+        private LazySingleton(){
+            if(instance != null){
+                throw new IllegalStateException("Object cant be created using reflection");
+            }
+        }
+
+        //to prevent clone this we can overrride clone() menthod and throw CloneNotSupportedException exception
+        @Override
+        protected Object clone() throws CloneNotSupportedException{
+            throw new CloneNotSupportedException();   
+        }
+
+        public static synchronized LazySingleton getInstance(){
+            if(instance == null)
+                return instance = new LazySingleton();
+
+            return instance;
+        }
+    }
+
+    class MyClone implements Cloneable{
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException{
+            return super.clone();    
+        }
+    }
+
+    public class MyClass {
+        public static void main(String args[]) 
+            throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+
+         LazySingleton inst1 = LazySingleton.getInstance();
+         System.out.println(inst1.hashCode());
+
+         LazySingleton reflectionInst = null;
+
+         Constructor[] consts = LazySingleton.class.getDeclaredConstructors();
+
+         for(Constructor theConst : consts){
+             theConst.setAccessible(true);
+             reflectionInst = (LazySingleton)theConst.newInstance();
+         }
+          System.out.println(reflectionInst.hashCode());
         }
     }
   ```
