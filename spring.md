@@ -7,3 +7,6 @@
 |NoUniqueBeanDefinationException| <li> This comes when one interface have two implementations. <li> We can solve this using `@Qulifier` or make one of the implementation annotate as `@Primary`
 |BeanInstantiationException|<li> This occurs when we annotate the abstract class as a `@Service` or define it as a bean in the configuration class.
 |ApplicationContextException|<li> This occurs when we miss to annotate `@SpringBootApplication`
+  <br/>
+
+>Stereotypes annotations - The annotations which helps to initialize the bean
